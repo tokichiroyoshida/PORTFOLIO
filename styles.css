@@ -1,0 +1,1723 @@
+body {
+    background-color: rgb(190, 190, 190);
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+/* PCの画面サイズーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+@media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
+
+/* 流体シェイプを動かす ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.fluid1 {
+    width: 50vh;/*横幅*/
+    height: 50vh;/*縦幅*/
+    background:#ffffff;/*背景色*/
+    animation: fluidrotate 20s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    z-index: 20;
+}
+
+@keyframes fluidrotate {  
+    
+0% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    box-shadow: -20px -10px 50px 5px rgba(0, 0, 0, .5) inset;
+    transform: rotate(180deg);
+}
+10% {
+    border-radius: 40% 60% 84% 46%/49% 60% 40% 51%;
+    opacity: 1;
+    transform: rotate(200deg);
+}
+
+30% {
+    border-radius: 94% 46% 38% 62%/49% 70% 30% 51%;
+}
+
+50% {
+    border-radius: 21% 79% 55% 45%/61% 38% 62% 39%;
+    transform: rotate(90deg);
+    box-shadow: -20px -10px 60px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+70% {
+    border-radius: 61% 59% 67% 33%/70% 50% 50% 30%;
+}
+
+90% {
+    border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+}
+
+100% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    box-shadow: -20px -10px 50px 5px rgba(0, 0, 0, .5) inset;
+    transform: rotate(180deg);
+}
+
+}
+
+/* typobuilder の文字 ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.show1 {
+    position: fixed;
+    top: 5%;
+    left: 1%;
+    font-size: 30px;
+    font-family: avenir;
+    color: rgb(255, 255, 255);
+    animation: textanimation1 3s ease 0s forwards;/*アニメーションの設定*/
+    animation-delay: 1.3s;
+    opacity: 0;
+    letter-spacing: 10px;
+}
+
+@keyframes textanimation1 {
+    from {
+        opacity: 0;
+        transform: translate(50px,50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(50px,0px);
+    }
+}
+
+.show2 {
+    position: fixed;
+    top: 15%;
+    left: 1%;
+    font-size: 30px;
+    font-family: avenir;
+    color: rgb(255, 255, 255);
+    animation: textanimation2 2s ease 0s forwards;/*アニメーションの設定*/
+    animation-delay: 1.5s;
+    opacity: 0;
+    letter-spacing: 15px;
+
+}
+
+@keyframes textanimation2 {
+    from {
+        opacity: 0;
+        transform: translate(50px,50px);
+    }
+    
+    to {
+        opacity: 1;
+        transform: translate(50px,-60px);
+    }
+}
+
+
+/* tokichiro の文字 ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.name {
+    font-size: 30px;
+    font-family: avenir;
+    position: fixed;
+    top: 90%;
+    left: 42%;
+    letter-spacing: 10px;
+    color: white;
+    animation: nameanimation 2s ease 0s forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+    font-weight: bold;
+
+}
+
+@keyframes nameanimation {
+    from {
+        opacity: 0;
+        transform: translate(0,50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+
+
+
+
+/* portfolio の文字 ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.list1 {
+    position: fixed;
+    top: 50%;
+    left: 88%;
+    font-size: 20px;
+    animation: nameanimation1 2s ease 0s forwards;
+    letter-spacing: 20px;
+    animation-delay: 2s;
+    opacity: 0;
+    font-weight: bold;
+}
+
+@keyframes nameanimation1 {
+    from {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+}
+
+
+.list1:hover {
+    color: rgb(0, 0, 0);
+}
+
+.list1::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 98%;
+    height: .5px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .3s;
+}
+.list1:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Loading背景画面設定 ----------------------------------*/
+
+
+#splash {
+    /*fixedで全面に固定*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background:rgb(255, 255, 255);
+    text-align:center;
+    color:#fff;
+}
+
+/* Loading画像中央配置 */
+#splash_logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Loading アイコンの大きさ設定 */
+#splash_logo img {
+    width:800px;
+}
+
+/* fadeUpをするアイコンの動き */
+
+.fadeUp{
+animation-name: fadeUpAnime;
+animation-duration: s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+from {
+    opacity: 0;
+transform: translateY(100px);
+}
+
+to {
+    opacity: 1;
+transform: translateY(0);
+}
+}
+
+
+
+
+
+
+
+/*========= portfolio page ===============*/
+#container {
+    width: 100vh;
+    height: 100vh;
+}
+
+
+.portfolio_main {
+    padding: 100px;
+}
+
+
+
+video {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*===モーダル表示のためのcss　*/
+
+.hide-area{/*モーダル表示をする場所をあらかじめ隠す*/
+    display: none;
+}
+
+.modaal-fullscreen .modaal-content-container{/*full画面の色設定*/
+    background: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.modaal-fullscreen .modaal-close{/*ボタンの色、位置*/
+    background:none;
+    right:20px;
+}
+
+/*クローズボタンの×の色変更*/
+.modaal-close:focus:after,
+.modaal-close:focus:before,
+.modaal-close:hover:after,
+.modaal-close:hover:before{
+    background:#666;
+}
+
+/*キャプション*/
+.caption{
+    display: block;
+    padding: 10px 0;
+}
+
+/*===　サムネイル表示のためのcss　*/
+
+.gallery{/*ベースになるギャラリーを横並びに*/
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0px;
+    padding: 0 100px 0 100px;
+}
+
+.gallery li{
+    width:33.333%;
+    padding: 10px 10px;
+}
+
+/*画像の横幅を100%にしてレスポンシブ化*/
+img{
+    max-width:100%;
+    height:auto;
+    vertical-align: bottom;/*画像の下にできる余白を削除*/
+}
+
+/*========= レイアウトのためのCSS ===============*/
+
+ul{
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    color: rgb(255, 255, 255);
+}
+
+a:hover,
+a:active{
+    text-decoration: none;
+}
+
+h1{
+    text-align: center;
+    font-size:6vw;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin:30px 0;
+}
+
+p{
+    margin:0 10px 10px 10px;
+    word-wrap : break-word;
+}
+
+
+/* main design ---------------------------------------- */
+
+main {
+    background-color: rgb(190, 190, 190);
+}
+
+
+
+/* footer design------------------------------------ */
+
+
+
+.footer_design {
+    text-align: center;
+    background-color: rgb(36, 36, 36);
+    height: 20px;
+}
+
+.footer_design,a {
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* menu bar design----------------------------------------------------- */
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+  /* The navigation menu links */
+.sidenav .closebtn {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+  /* When you mouse over the navigation links, change their color */
+.closebtn:hover {
+    color: #f1f1f1;
+}
+
+  /* Position and style the close button (top right corner) */
+.closebtn {
+    position: absolute;
+    top: 45%;
+    right: 25px;
+    margin-left: 0px;
+}
+
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+/* @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+} */
+
+
+
+/* TOP */
+
+.menu_contents1 {
+    position: absolute;
+    top: 40px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents1:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents1::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents1:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+/* GRAFICS */
+
+.menu_contents2 {
+    position: absolute;
+    top: 90px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents2:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents2::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents2:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+
+
+/* WEB */
+
+.menu_contents3 {
+    position: absolute;
+    top: 140px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents3:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents3::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents3:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+/* PROJECTS */
+
+
+.menu_contents4 {
+    position: absolute;
+    top: 190px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents4:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents4::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents4:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+
+/* CONTACTS */
+
+
+.menu_contents5 {
+    position: absolute;
+    top: 240px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents5:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents5::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents5:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+
+
+
+
+
+/* portfikio information 部分ーーーーーーーーーーーーーーーーーーーーー */
+
+
+.tokichiro_icon {
+    width: 300px;
+}
+
+.icon_info_box {
+    display: flex;
+    justify-content: space-between;
+    padding: 200px 500px 0 500px;
+    margin-bottom: 500px;
+}
+
+
+.typo {
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*========= toki animation in my information ===============*/
+
+
+
+
+.line_in_side_pearent {
+    display: flex;
+    /* padding-left: 100px; */
+}
+
+
+.box{
+    font-size: 80px;
+    color: #fff;
+    font-family: avenir;
+    font-weight: 900;
+}
+
+  /* fadeUp  T */
+
+.fadeUp1{
+animation-name:fadeUpAnime1;
+animation-duration:1.5s;
+animation-delay: .5s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+@keyframes fadeUpAnime1{
+    0% {
+        opacity: 1;
+        transform: translate(200px, 200px);
+    }
+    
+    50% {
+        opacity: 1;
+        transform: translate(200px, 0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+    }
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+
+    .fadeUpTrigger1{
+        opacity: 0;
+    }
+
+
+      /* fadeUp  K */
+
+.fadeUp2{
+    animation-name:fadeUpAnime2;
+    animation-duration:1.5s;
+    animation-delay: .5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime2{
+        0% {
+            opacity: 1;
+            transform: translate(200px, -200px);
+        }
+        
+        50% {
+            opacity: 1;
+            transform: translate(200px, 0px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
+        }
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+        .fadeUpTrigger2{
+            opacity: 0;
+            margin-top: -20px;
+        }
+
+
+            /* fadeUp  O */
+.fadeUp3{
+    animation-name:fadeUpAnime3;
+    animation-duration:1.5s;
+    animation-delay: .5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime3{
+        0% {
+            opacity: 1;
+            transform: translate(-200px, 200px);
+        }
+        
+        50% {
+            opacity: 1;
+            transform: translate(-200px, 0px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
+        }
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+        .fadeUpTrigger3{
+            opacity: 0;
+            padding-left: 20px;
+        }
+
+
+         /* fadeUp  I */
+
+.fadeUp4{
+    animation-name:fadeUpAnime4;
+    animation-duration:1.5s;
+    animation-delay: .5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime4{
+        0% {
+            opacity: 1;
+            transform: translate(-200px, -200px);
+        }
+        
+        50% {
+            opacity: 1;
+            transform: translate(-200px, 0px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
+        }
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+        .fadeUpTrigger4{
+            opacity: 0;
+            padding-left: 40px;
+            margin-top: -20px;
+        }
+
+
+         /* fadeUp  photo_me */
+
+.fadeUp5{
+    animation-name:fadeUpAnime5;
+    animation-duration:2s;
+    animation-delay: .5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime5{
+        from {
+            opacity: 0;
+            transform: translate(0px, 200px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
+        }
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+        .fadeUpTrigger5{
+            opacity: 0;
+            padding-left: 40px;
+            margin-top: -20px;
+        }
+
+        
+}
+
+
+
+/* タブレットの画面サイズーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+@media screen and (max-width: 767px) { /*ウィンドウ幅が最大767pxまでの場合に適用*/
+
+
+
+
+
+}
+/* 携帯の画面サイズーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+@media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
+
+
+
+
+
+
+/* 流体シェイプを動かす ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.fluid1 {
+    width: 200px;/*横幅*/
+    height: 200px;/*縦幅*/
+    background:#ffffff;/*背景色*/
+    animation: fluidrotate 20s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    z-index: 20;
+}
+
+@keyframes fluidrotate {  
+    
+0% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    box-shadow: -20px -10px 50px 5px rgba(0, 0, 0, .5) inset;
+    transform: rotate(180deg);
+}
+10% {
+    border-radius: 40% 60% 84% 46%/49% 60% 40% 51%;
+    opacity: 1;
+    transform: rotate(200deg);
+}
+
+30% {
+    border-radius: 94% 46% 38% 62%/49% 70% 30% 51%;
+}
+
+50% {
+    border-radius: 21% 79% 55% 45%/61% 38% 62% 39%;
+    transform: rotate(90deg);
+    box-shadow: -20px -10px 60px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+70% {
+    border-radius: 61% 59% 67% 33%/70% 50% 50% 30%;
+}
+
+90% {
+    border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+}
+
+100% {
+    border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+    box-shadow: -20px -10px 50px 5px rgba(0, 0, 0, .5) inset;
+    transform: rotate(180deg);
+}
+
+}
+
+
+/* typobuilder の文字 ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.show1 {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    font-size: 20px;
+    font-family: avenir;
+    color: rgb(255, 255, 255);
+    animation: textanimation1 3s ease 0s forwards;/*アニメーションの設定*/
+    animation-delay: 1.3s;
+    opacity: 0;
+    letter-spacing: 10px;
+}
+
+@keyframes textanimation1 {
+    from {
+        opacity: 0;
+        transform: translate(50px,50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(50px,0px);
+    }
+}
+
+.show2 {
+    position: fixed;
+    top: 130px;
+    left: 0px;
+    font-size: 20px;
+    font-family: avenir;
+    color: rgb(255, 255, 255);
+    animation: textanimation2 2s ease 0s forwards;/*アニメーションの設定*/
+    animation-delay: 1.5s;
+    opacity: 0;
+    letter-spacing: 15px;
+
+}
+
+@keyframes textanimation2 {
+    from {
+        opacity: 0;
+        transform: translate(50px,50px);
+    }
+    
+    to {
+        opacity: 1;
+        transform: translate(50px,-60px);
+    }
+}
+
+
+/* tokichiro の文字 ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.name {
+    font-size: 20px;
+    font-family: avenir;
+    position: fixed;
+    top: 92%;
+    left: 22%;
+    letter-spacing: 10px;
+    color: white;
+    animation: nameanimation 2s ease 0s forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+    font-weight: bold;
+    z-index: 99;
+}
+
+@keyframes nameanimation {
+    from {
+        opacity: 0;
+        transform: translate(0,50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+
+
+/* portfolio の文字 ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+.list1 {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    font-size: 10px;
+    animation: nameanimation1 2s ease 0s forwards;
+    letter-spacing: 20px;
+    animation-delay: 2s;
+    opacity: 0;
+    font-weight: bold;
+}
+
+@keyframes nameanimation1 {
+    from {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+}
+
+
+.list1:hover {
+    color: rgb(0, 0, 0);
+}
+
+.list1::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 98%;
+    height: .5px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .3s;
+}
+.list1:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+/* Loading背景画面設定 ----------------------------------*/
+
+
+#splash {
+    /*fixedで全面に固定*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 47vh;
+    height: 100vh;
+    z-index: 999;
+    background:rgb(255, 255, 255);
+    text-align:center;
+    color:#fff;
+}
+
+/* Loading画像中央配置 */
+#splash_logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Loading アイコンの大きさ設定 */
+#splash_logo img {
+    width: 100%;
+}
+
+/* fadeUpをするアイコンの動き */
+
+.fadeUp{
+animation-name: fadeUpAnime;
+animation-duration: s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+from {
+    opacity: 0;
+transform: translateY(100px);
+}
+
+to {
+    opacity: 1;
+transform: translateY(0);
+}
+}
+
+
+
+
+
+
+
+/*========= portfolio page ===============*/
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+
+.portfolio_main {
+    padding: 20px;
+}
+
+
+
+video {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*===モーダル表示のためのcss　*/
+
+.hide-area{/*モーダル表示をする場所をあらかじめ隠す*/
+    display: none;
+}
+
+.modaal-fullscreen .modaal-content-container{/*full画面の色設定*/
+    background: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.modaal-fullscreen .modaal-close{/*ボタンの色、位置*/
+    background:none;
+}
+
+/*クローズボタンの×の色変更*/
+.modaal-close:focus:after,
+.modaal-close:focus:before,
+.modaal-close:hover:after,
+.modaal-close:hover:before{
+    background:#666;
+}
+
+/*キャプション*/
+.caption{
+    display: block;
+}
+
+/*===　サムネイル表示のためのcss　*/
+
+.gallery{/*ベースになるギャラリーを横並びに*/
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0px;
+    padding: 0 0px 0 0px;
+}
+
+.gallery li{
+    width:20%;
+}
+
+.gallery-list {
+    padding: 0;
+}
+
+/*画像の横幅を100%にしてレスポンシブ化*/
+img{
+    max-width:100%;
+    height:auto;
+    vertical-align: bottom;/*画像の下にできる余白を削除*/
+}
+
+/*========= レイアウトのためのCSS ===============*/
+
+ul{
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    color: rgb(255, 255, 255);
+}
+
+a:hover,
+a:active{
+    text-decoration: none;
+}
+
+h1{
+    text-align: center;
+    font-size:6vw;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin:30px 0;
+}
+
+p{
+    margin:0 10px 10px 10px;
+    word-wrap : break-word;
+}
+
+
+/* main design ---------------------------------------- */
+
+main {
+    background-color: rgb(190, 190, 190);
+}
+
+
+
+/* footer design------------------------------------ */
+
+
+
+.footer_design {
+    text-align: center;
+    background-color: rgb(36, 36, 36);
+    height: 20px;
+}
+
+.footer_design,a {
+    padding: 10px;
+}
+
+
+
+/* menu bar design----------------------------------------------------- */
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 88; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+  /* The navigation menu links */
+.sidenav .closebtn {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+  /* When you mouse over the navigation links, change their color */
+.closebtn:hover {
+    color: #f1f1f1;
+}
+
+  /* Position and style the close button (top right corner) */
+.closebtn {
+    position: absolute;
+    top: 45%;
+    right: 25px;
+    margin-left: 0px;
+}
+
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+/* @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+} */
+
+
+
+/* TOP */
+
+.menu_contents1 {
+    position: absolute;
+    top: 40px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents1:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents1::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents1:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+/* GRAFICS */
+
+.menu_contents2 {
+    position: absolute;
+    top: 90px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents2:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents2::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents2:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+
+
+/* WEB */
+
+.menu_contents3 {
+    position: absolute;
+    top: 140px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents3:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents3::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents3:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+/* PROJECTS */
+
+
+.menu_contents4 {
+    position: absolute;
+    top: 190px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents4:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents4::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents4:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+
+/* CONTACTS */
+
+
+.menu_contents5 {
+    position: absolute;
+    top: 240px;
+    padding: 0px 0px 0px 50px;
+    text-decoration: none;
+    font-size: 35px;
+    color: rgb(190, 190, 190);
+    display: block;
+    transition: 0.3s;
+}
+
+.menu_contents5:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu_contents5::after {
+    position: absolute;
+    bottom: -.5px;
+    left: 50px;
+    content: '';
+    width: 98%;
+    height: 1px;
+    background: rgb(255, 255, 255);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+}
+
+.menu_contents5:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+
+
+
+
+
+
+/*========= toki animation in my information ===============*/
+
+
+
+
+.icon_info_box {
+    display: flex;
+    padding-top: 450px;
+}
+
+
+
+.line_in_side_pearent {
+    display: flex;
+    padding-left: 35px;
+}
+
+
+.box{
+    font-size: 50px;
+    color: #fff;
+    font-family: avenir;
+    font-weight: 900;
+}
+
+  /* fadeUp  T */
+
+.fadeUp1{
+animation-name:fadeUpAnime1;
+animation-duration:1.5s;
+animation-delay: .5s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+@keyframes fadeUpAnime1{
+    0% {
+        opacity: 1;
+        transform: translate(200px, 200px);
+    }
+    
+    50% {
+        opacity: 1;
+        transform: translate(200px, 0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+    }
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+
+    .fadeUpTrigger1{
+        opacity: 0;
+    }
+
+
+      /* fadeUp  K */
+
+.fadeUp2{
+    animation-name:fadeUpAnime2;
+    animation-duration:1.5s;
+    animation-delay: .5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime2{
+        0% {
+            opacity: 1;
+            transform: translate(200px, -200px);
+        }
+        
+        50% {
+            opacity: 1;
+            transform: translate(200px, 0px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
+        }
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+        .fadeUpTrigger2{
+            opacity: 0;
+        }
+
+
+            /* fadeUp  O */
+.fadeUp3{
+    animation-name:fadeUpAnime3;
+    animation-duration:1.5s;
+    animation-delay: .5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime3{
+        0% {
+            opacity: 1;
+            transform: translate(-200px, 200px);
+        }
+        
+        50% {
+            opacity: 1;
+            transform: translate(-200px, 0px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
+        }
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+        .fadeUpTrigger3{
+            opacity: 0;
+        }
+
+
+         /* fadeUp  I */
+
+.fadeUp4{
+    animation-name:fadeUpAnime4;
+    animation-duration:1.5s;
+    animation-delay: .5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    padding-left: 15px;
+    }
+    
+    @keyframes fadeUpAnime4{
+        0% {
+            opacity: 1;
+            transform: translate(-200px, -200px);
+        }
+        
+        50% {
+            opacity: 1;
+            transform: translate(-200px, 0px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
+        }
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+        .fadeUpTrigger4{
+            opacity: 0;
+        }
+
+
+         /* fadeUp  photo_me */
+
+
+        .tokichiro_icon {
+            width: 150px;
+            height: 150px;
+            padding-right: 35px;
+            z-index: 1;
+        }
+
+.fadeUp5{
+    animation-name:fadeUpAnime5;
+    animation-duration:2s;
+    animation-delay: .5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime5{
+        from {
+            opacity: 0;
+            transform: translate(0px, 200px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
+        }
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+    
+        .fadeUpTrigger5{
+            opacity: 0;
+        }
+
+
+        .icon_info_box {
+            width: 100%;
+            padding-bottom: 200px;
+        }
+
+
+        .tokichiro_icon {
+            size: 5%;
+        }
+
+        .tokichiro_info_name {
+            font-size: 5px;
+            padding-left: 10px;
+        }
+
+        .tokichiro_info_text {
+            font-size: 5px;
+            padding-left: 10px;
+        }
+        
+}
+
+
